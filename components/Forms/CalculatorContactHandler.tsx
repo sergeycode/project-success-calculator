@@ -46,11 +46,8 @@ interface FormProps {
   completed: boolean;
 }
 
-interface AnswerSimplified {
-  scope: string;
-  tools: string[];
-  qa: string;
-  budget: string;
+interface AnswerStringified {
+  [key: string]: string | string[];
 }
 
 export default function CalculatorContactHandler({
@@ -62,7 +59,7 @@ export default function CalculatorContactHandler({
   const FormSchema = Yup.object().shape(ContactSchema);
   const router = useRouter();
   const [submitError, setSubmitError] = useState<string>('');
-  const [answer, setAnswer] = useState<AnswerSimplified>({
+  const [answer, setAnswer] = useState<AnswerStringified>({
     scope: '',
     tools: [],
     qa: '',

@@ -230,23 +230,16 @@ const qaCoef = [0.1, 0.6, 0.8, 1];
 
 const budgetCoef = [0.1, 0.6, 0.8, 1];
 
+interface AnswerItem {
+  name: string;
+  point: number;
+}
+
 interface Answer {
-  scope: {
-    name: string;
-    point: number;
-  };
-  tools: {
-    name: string;
-    point: number;
-  }[];
-  qa: {
-    name: string;
-    point: number;
-  };
-  budget: {
-    name: string;
-    point: number;
-  };
+  scope: AnswerItem;
+  tools: AnswerItem[];
+  qa: AnswerItem;
+  budget: AnswerItem;
 }
 
 export default function Calculator({
@@ -319,23 +312,23 @@ export default function Calculator({
     answerKey: string,
     multiple: boolean
   ) => {
-    const value = event.currentTarget.dataset.value;
-    const point = event.currentTarget.dataset.point;
+    const value = String(event.currentTarget.dataset.value);
+    const point = Number(event.currentTarget.dataset.point);
 
     if (multiple) {
       setAnswer({
         ...answer,
         // add/remove on click
-        [answerKey]: answer[answerKey as keyof Answer].some(
-          (v) => v.name === value
+        [answerKey]: (answer[answerKey as keyof Answer] as AnswerItem[]).some(
+          (s) => s.name === value
         )
-          ? answer[answerKey as keyof Answer].filter((f) => f.name !== value)
-          : answer[answerKey as keyof Answer].concat([
-              {
-                name: value,
-                point: point,
-              },
-            ]),
+          ? (answer[answerKey as keyof Answer] as AnswerItem[]).filter(
+              (f) => f.name !== value
+            )
+          : (answer[answerKey as keyof Answer] as AnswerItem[]).concat({
+              name: value,
+              point: point,
+            }),
       });
     } else {
       setAnswer({
@@ -376,7 +369,6 @@ export default function Calculator({
     stepData[step - 1];
 
   const nextStep = () => {
-    console.log(answer);
     if (step < maxSteps) {
       setStep(step + 1);
     }
@@ -393,8 +385,8 @@ export default function Calculator({
     const name = stepData[step - 1].name;
 
     const filledValue = multiple
-      ? answer[key as keyof Answer].length > 0
-      : answer[key as keyof Answer].name.length > 0;
+      ? (answer[key as keyof Answer] as AnswerItem[]).length > 0
+      : (answer[key as keyof Answer] as AnswerItem).name.length > 0;
 
     // check if on current step and answer is filled (toString - can be string or array)
     if (key === name && filledValue) {
@@ -562,12 +554,12 @@ export default function Calculator({
               >
                 {data.items.map((item, itemIndex) => {
                   const activeLink = data.multiple
-                    ? answer[data.name as keyof Answer].some(
-                        (v) => v.name === item.title
+                    ? (answer[data.name as keyof Answer] as AnswerItem[]).some(
+                        (s) => s.name === item.title
                       )
-                    : answer[data.name as keyof Answer].name.includes(
-                        item.title
-                      );
+                    : (
+                        answer[data.name as keyof Answer] as AnswerItem
+                      ).name.includes(item.title);
                   return (
                     <Button
                       key={itemIndex}
@@ -610,7 +602,8 @@ export default function Calculator({
                       isDisabled={
                         data.multiple &&
                         !activeLink &&
-                        answer[data.name as keyof Answer].length > 4
+                        (answer[data.name as keyof Answer] as AnswerItem[])
+                          .length > 4
                       }
                       data-value={item.title}
                       data-point={item.point}
