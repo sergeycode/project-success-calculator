@@ -443,16 +443,31 @@ export default function Calculator({
               />
             </Box>
             <Heading
-              as="h2"
+              as="h1"
               textAlign="center"
               mt={{ base: '9', lg: '12' }}
               mb={{ base: '3', lg: '6' }}
               fontSize={{ base: '2rem', lg: '2.625rem' }}
+              fontWeight="extrabold"
             >
-              Will Your Project Be Successful
+              Introducing the{' '}
+              <Box as="span" color="teal">
+                Project Success Calculator
+              </Box>
+            </Heading>
+            <Heading
+              as="h2"
+              fontSize={{ base: '1.125rem', lg: '1.5rem' }}
+              lineHeight={{ base: '1.375rem', lg: '1.75rem' }}
+              color={theme.dark}
+              maxW="66.5rem"
+              mx="auto"
+              mb="6"
+            >
+              The ultimate tool to calculate the success rate of your project.
             </Heading>
             <Text
-              fontSize={{ base: '1.125rem', lg: '1.5rem' }}
+              fontSize={{ base: '1rem', lg: '1.125rem' }}
               lineHeight={{ base: '1.375rem', lg: '1.75rem' }}
               color={theme.dark}
               fontWeight="semibold"
@@ -460,10 +475,12 @@ export default function Calculator({
               mx="auto"
               mb={{ base: '8', lg: '12' }}
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi,
-              explicabo in? Quisquam, adipisci! Laboriosam quos corrupti
-              deleniti enim obcaecati minus fuga laborum illo placeat libero
-              cum, illum deserunt. Hic, consectetur.
+              This multi-step calculator takes into account important factors
+              such as project scope, project management tools, quality
+              assurance, and budget to provide you with an accurate prediction
+              of your project&apos;s success. No more guesswork, no more
+              uncertainty. Get a clear picture of your project&apos;s success
+              potential today with the Project Success Calculator.
             </Text>
             <Button
               variant="primary"
