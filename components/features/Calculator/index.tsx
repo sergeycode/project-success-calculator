@@ -892,23 +892,19 @@ export default function Calculator({
                         mx="auto"
                         maxW="450px"
                       >
-                        <Box
-                          fontSize="2rem"
-                          line-height="2.25rem"
-                          fontWeight="bold"
-                          color="grey.900"
-                        >
-                          <Box color={theme.secondary}>Thank you</Box>
-                          <Box>for your interest.</Box>
+                        <Box fontSize="4xl" fontWeight="bold" color="grey.900">
+                          <Box fontFamily="heading" color={theme.secondary}>
+                            Thank you
+                          </Box>
+                          <Box fontFamily="heading">for your interest.</Box>
                         </Box>
                         <Text
                           mt="6"
                           lineHeight="shorter"
                           fontSize={{ base: 'md', lg: 'lg' }}
                         >
-                          We will be in touch shortly to answer any questions
-                          you may have after reviewing the results of your
-                          project calculations.
+                          We will be in touch shortly to talk more about your
+                          project.
                         </Text>
                       </Box>
                     ) : (
