@@ -404,13 +404,24 @@ export default function Calculator({
       storedAnswer.tools.map((tool) => tool.point)
     );
 
-    const successByTools: number = successByScope * toolsCoef[toolsMedian - 1];
+    const roundedMedian: number = Math.round(toolsMedian);
+
+    const successByTools: number =
+      successByScope * toolsCoef[roundedMedian - 1];
 
     const successByQA: number =
       successByTools * qaCoef[storedAnswer.qa.point - 1];
 
     const successByBudget: number =
       successByQA * budgetCoef[storedAnswer.budget.point - 1];
+
+    // debug
+    // console.log(`successByScope: ${successByScope}`);
+    // console.log(`toolsMedian: ${toolsMedian}`);
+    // console.log(`roundedMedian: ${roundedMedian}`);
+    // console.log(`successByTools: ${successByTools}`);
+    // console.log(`successByQA: ${successByQA}`);
+    // console.log(`successByBudget: ${successByBudget}`);
 
     return successByBudget.toLocaleString();
   };
