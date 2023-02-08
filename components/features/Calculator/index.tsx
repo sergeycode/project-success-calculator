@@ -92,7 +92,7 @@ const stepData: StepData[] = [
     long: false,
     items: [
       {
-        title: 'Detailed description with deliverables and timelines',
+        title: 'Detailed description, deliverables, timelines, etc.',
         icon: '/images/calculator/',
         point: 4,
       },
@@ -133,12 +133,12 @@ const stepData: StepData[] = [
         icon: '/images/calculator/',
       },
       {
-        title: 'My marketing/design team will do it',
+        title: 'My marketing/design team will QA',
         point: 3,
         icon: '/images/calculator/',
       },
       {
-        title: 'I will do it myself',
+        title: 'I will QA myself',
         point: 2,
         icon: '/images/calculator/',
       },
@@ -221,13 +221,13 @@ const estimateIncludes = [
   'Budget',
 ];
 
-const scopeCoef = [0.1, 0.6, 0.8, 1];
+const scopeCoef = [0.2, 0.7, 0.9, 1];
 
-const toolsCoef = [0.1, 0.6, 0.8, 1];
+const toolsCoef = [0.2, 0.6, 0.9, 1];
 
-const qaCoef = [0.1, 0.6, 0.8, 1];
+const qaCoef = [0.1, 0.5, 0.8, 1];
 
-const budgetCoef = [0.1, 0.6, 0.8, 1];
+const budgetCoef = [0.1, 0.5, 0.9, 1];
 
 interface AnswerItem {
   name: string;
