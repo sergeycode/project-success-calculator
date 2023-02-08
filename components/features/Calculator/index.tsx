@@ -90,23 +90,23 @@ const stepData: StepData[] = [
     multiple: false,
     items: [
       {
-        title: 'Detailed description, deliverables, timelines, etc.',
-        icon: '/images/calculator/',
+        title: 'Detailed description',
+        icon: '/images/calculator/icons/detailed-description.svg',
         point: 4,
       },
       {
         title: 'Good description',
-        icon: '/images/calculator/',
+        icon: '/images/calculator/icons/good-description.svg',
         point: 3,
       },
       {
         title: 'I have a design',
-        icon: '/images/calculator/',
+        icon: '/images/calculator/icons/design.svg',
         point: 2,
       },
       {
         title: 'I have an idea',
-        icon: '/images/calculator/',
+        icon: '/images/calculator/icons/idea.svg',
         point: 1,
       },
     ],
@@ -124,24 +124,24 @@ const stepData: StepData[] = [
     multiple: false,
     items: [
       {
-        title: 'I have Dedicated QA team',
+        title: 'QA team',
         point: 4,
-        icon: '/images/calculator/',
+        icon: '/images/calculator/icons/qa.svg',
       },
       {
-        title: 'My marketing/design team will QA',
+        title: 'Marketing or design team',
         point: 3,
-        icon: '/images/calculator/',
+        icon: '/images/calculator/icons/design-team.svg',
       },
       {
         title: 'I will QA myself',
         point: 2,
-        icon: '/images/calculator/',
+        icon: '/images/calculator/icons/qa-self.svg',
       },
       {
         title: 'I just want it to look good',
         point: 1,
-        icon: '/images/calculator/',
+        icon: '/images/calculator/icons/look-good.svg',
       },
     ],
   },
@@ -153,22 +153,22 @@ const stepData: StepData[] = [
       {
         title: '> $50 000',
         point: 4,
-        icon: '/images/calculator/',
+        icon: '/images/calculator/icons/50k.svg',
       },
       {
         title: '$30 000',
         point: 3,
-        icon: '/images/calculator/',
+        icon: '/images/calculator/icons/30k.svg',
       },
       {
         title: '$5000',
         point: 2,
-        icon: '/images/calculator/',
+        icon: '/images/calculator/icons/5k.svg',
       },
       {
         title: '$1000',
         point: 1,
-        icon: '/images/calculator/',
+        icon: '/images/calculator/icons/1k.svg',
       },
     ],
   },
@@ -824,7 +824,7 @@ export default function Calculator({
                   >
                     <GridItem>
                       <Result
-                        icon="/images/calculator/world.svg"
+                        icon="/images/calculator/icons/success.svg"
                         title="Project Success Rate"
                         rate={completed ? calculateResults() : '0'}
                         border={theme.secondary}
