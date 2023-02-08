@@ -11,7 +11,6 @@ import {
 } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { PrimaryButton, SecondaryButton } from 'components/UI/Button';
 import CalculatorContactHandler from '../../Forms/CalculatorContactHandler';
 import ArrowRight from 'components/Icons/ArrowRight';
 import slugify from 'helpers/slugify';
@@ -455,7 +454,8 @@ export default function Calculator({
               deleniti enim obcaecati minus fuga laborum illo placeat libero
               cum, illum deserunt. Hic, consectetur.
             </Text>
-            <PrimaryButton
+            <Button
+              variant="primary"
               minW={{ base: '100%', md: '20rem' }}
               position="relative"
               onClick={() => setStarted(true)}
@@ -466,7 +466,7 @@ export default function Calculator({
                 position={{ lg: 'absolute' }}
                 right={{ lg: '4' }}
               />
-            </PrimaryButton>
+            </Button>
           </Box>
         )}
         <Box display={started ? 'block' : 'none'}>
@@ -728,7 +728,8 @@ export default function Calculator({
               justifyContent="center"
             >
               {step != 1 && (
-                <SecondaryButton
+                <Button
+                  variant="secondary"
                   minW={{ base: '100%', md: '10.25rem' }}
                   position="relative"
                   order={{ base: 1, lg: 0 }}
@@ -742,9 +743,10 @@ export default function Calculator({
                     transform="rotate(180deg)"
                     transition="none"
                   />
-                </SecondaryButton>
+                </Button>
               )}
-              <PrimaryButton
+              <Button
+                variant="primary"
                 minW={{ base: '100%', md: '10.25rem' }}
                 position="relative"
                 mb={{ base: '4', lg: '0' }}
@@ -758,7 +760,7 @@ export default function Calculator({
                   position={{ lg: 'absolute' }}
                   right={{ lg: '4' }}
                 />
-              </PrimaryButton>
+              </Button>
             </Box>
           </Box>
           <Box
@@ -823,7 +825,8 @@ export default function Calculator({
                     mt={{ base: '4', lg: toggleForm ? '4' : '12' }}
                     justifyContent="center"
                   >
-                    <SecondaryButton
+                    <Button
+                      variant="secondary"
                       minW={{ base: '100%', md: '16rem' }}
                       position="relative"
                       order={{ base: 1, lg: 0 }}
@@ -835,7 +838,7 @@ export default function Calculator({
                         transition="none"
                       />
                       Start Over
-                    </SecondaryButton>
+                    </Button>
                   </Box>
                 </Box>
               </GridItem>

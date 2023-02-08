@@ -6,14 +6,13 @@ import {
   Textarea,
   VStack,
   InputProps,
+  Button,
 } from '@chakra-ui/react';
 
 import { Formik, Form } from 'formik';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import * as Yup from 'yup';
-
-import { PrimaryButton } from 'components/UI/Button';
 
 const ContactSchema = {
   fullName: Yup.string()
@@ -210,7 +209,8 @@ export default function CalculatorContactHandler({
                   />
                 </FormControl>
               </VStack>
-              <PrimaryButton
+              <Button
+                variant="primary"
                 display="block"
                 mx="auto"
                 mt={6}
@@ -223,7 +223,7 @@ export default function CalculatorContactHandler({
                 type="submit"
               >
                 {buttonText}
-              </PrimaryButton>
+              </Button>
               {submitError && (
                 <Box fontSize="xs" mt="1" color="red">
                   {submitError}
