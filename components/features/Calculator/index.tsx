@@ -76,7 +76,6 @@ interface StepData {
   name: string;
   title: string;
   multiple: boolean;
-  long: boolean;
   items: {
     title: string;
     point: number;
@@ -87,9 +86,8 @@ interface StepData {
 const stepData: StepData[] = [
   {
     name: 'scope',
-    title: 'Do you have a defined project scope:',
+    title: 'Do you have a clearly defined project scope:',
     multiple: false,
-    long: false,
     items: [
       {
         title: 'Detailed description, deliverables, timelines, etc.',
@@ -118,14 +116,12 @@ const stepData: StepData[] = [
     title:
       'What kind of project management tools do you use (select multiple):',
     multiple: true,
-    long: false,
     items: AllTools(),
   },
   {
     name: 'qa',
     title: 'How will you manage Quality Assurance:',
     multiple: false,
-    long: false,
     items: [
       {
         title: 'I have Dedicated QA team',
@@ -153,7 +149,6 @@ const stepData: StepData[] = [
     name: 'budget',
     title: 'What is your budget:',
     multiple: false,
-    long: true,
     items: [
       {
         title: '> $50 000',
