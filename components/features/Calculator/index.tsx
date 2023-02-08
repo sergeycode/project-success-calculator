@@ -390,9 +390,9 @@ export default function Calculator({
     }
   };
 
-  const data = currentStepData(stepData, step);
+  const data: StepData = currentStepData(stepData, step);
 
-  const calculateResults = () => {
+  const calculateResults: () => string = () => {
     const storedAnswer: Answer = JSON.parse(sessionStorage.successCalculator);
 
     const maxPoints = 100;
