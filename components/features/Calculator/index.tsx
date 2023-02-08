@@ -425,12 +425,23 @@ export default function Calculator({
       <Container py={{ base: '12', lg: '24' }} id="get-started">
         {withStart && (
           <Box textAlign="center" display={started ? 'none' : 'block'}>
-            <Image
-              src="/images/calculator/calculator-start.svg"
-              alt=""
-              width="456"
-              height="322"
-            />
+            <Box
+              maxW="100%"
+              w="600px"
+              h="400px"
+              mx="auto"
+              boxShadow={theme.boxShadow}
+              position="relative"
+              border={theme.border}
+              overflow="hidden"
+            >
+              <Image
+                src="/images/calculator/success-calculator-home.svg"
+                alt=""
+                fill
+                style={{ objectFit: 'cover' }}
+              />
+            </Box>
             <Heading
               as="h2"
               textAlign="center"
