@@ -11,6 +11,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import ArrowRight from 'components/Icons/ArrowRight';
 import Result from './Result';
+import StepIndicator from './StepIndicator';
 import Navigation from './Navigation';
 
 import slugify from 'helpers/slugify';
@@ -241,7 +242,6 @@ export default function Calculator({
   const submitted: string = router.query.s as string;
 
   const maxSteps: number = stepData.length;
-  const barWidth: string = (step / maxSteps) * 100 + '%';
 
   useEffect(() => {
     if (sessionStorage?.successCalculator) {
@@ -486,35 +486,12 @@ export default function Calculator({
             p={{ base: '1.5rem', lg: '3rem' }}
             display={completed ? 'none' : 'block'}
           >
-            <Box
-              fontSize="md"
-              lineHeight="1.5rem"
-              textAlign="center"
-              fontWeight="semibold"
-            >
-              Step {step} of {maxSteps}
-            </Box>
-            <Box
-              position="relative"
-              mt="6"
-              mb={{ base: '8', lg: '12' }}
-              mx="auto"
-              w="100%"
-              h="2"
-              maxW="36.25rem"
-              overflow="hidden"
-            >
-              <Box w="100%" h="100%" bgColor={theme.primary} />
-              <Box
-                w={barWidth}
-                h="100%"
-                bgColor={theme.secondary}
-                position="absolute"
-                top="0"
-                left="0"
-                transition="width 0.3s ease-in-out"
-              />
-            </Box>
+            <StepIndicator
+              step={step}
+              maxSteps={maxSteps}
+              primaryColor={theme.primary}
+              secondaryColor={theme.secondary}
+            />
             <Heading
               as="h3"
               textAlign="center"
