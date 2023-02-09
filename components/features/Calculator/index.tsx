@@ -216,13 +216,13 @@ const estimateIncludes = [
   'Budget',
 ];
 
-const scopeCoef = [0.2, 0.7, 0.9, 1];
+const scopeCoef = [0.5, 0.7, 0.9, 1];
 
-const toolsCoef = [0.2, 0.6, 0.9, 1];
+const toolsCoef = [0.4, 0.7, 0.9, 1];
 
-const qaCoef = [0.1, 0.5, 0.8, 1];
+const qaCoef = [0.4, 0.5, 0.8, 1];
 
-const budgetCoef = [0.1, 0.5, 0.9, 1];
+const budgetCoef = [0.4, 0.7, 0.9, 1];
 
 interface AnswerItem {
   name: string;
@@ -415,6 +415,8 @@ export default function Calculator({
     const successByBudget: number =
       successByQA * budgetCoef[storedAnswer.budget.point - 1];
 
+    const roundResult: number = Math.round(successByBudget);
+
     // debug
     // console.log(`successByScope: ${successByScope}`);
     // console.log(`toolsMedian: ${toolsMedian}`);
@@ -422,8 +424,9 @@ export default function Calculator({
     // console.log(`successByTools: ${successByTools}`);
     // console.log(`successByQA: ${successByQA}`);
     // console.log(`successByBudget: ${successByBudget}`);
+    // console.log(`roundResult: ${roundResult}`);
 
-    return successByBudget.toLocaleString();
+    return roundResult.toLocaleString();
   };
 
   return (
