@@ -191,8 +191,8 @@ const Result = ({
       <Box ml="5">
         <Box
           fontSize={{ base: '1.125rem', lg: '1.375rem' }}
-          fontWeight="semibold"
-          mb="6"
+          fontWeight="bold"
+          fontFamily="heading"
         >
           {title}
         </Box>
@@ -450,7 +450,6 @@ export default function Calculator({
             </Box>
             <Heading
               as="h1"
-              textAlign="center"
               mt={{ base: '9', lg: '12' }}
               mb={{ base: '3', lg: '6' }}
               fontSize={{ base: '2rem', lg: '2.625rem' }}
@@ -473,11 +472,10 @@ export default function Calculator({
               The ultimate tool to calculate the success rate of your project.
             </Heading>
             <Text
-              fontSize={{ base: '1rem', lg: '1.125rem' }}
-              lineHeight={{ base: '1.375rem', lg: '1.75rem' }}
-              color={theme.dark}
-              fontWeight="semibold"
-              maxW="66.5rem"
+              fontSize={{ base: 'md', lg: 'lg' }}
+              color={theme.text}
+              maxW="58rem"
+              textAlign="justify"
               mx="auto"
               mb={{ base: '8', lg: '12' }}
             >
@@ -490,11 +488,11 @@ export default function Calculator({
             </Text>
             <Button
               variant="primary"
-              minW={{ base: '100%', md: '20rem' }}
+              minW={{ base: '100%', md: '16rem' }}
               position="relative"
               onClick={() => setStarted(true)}
             >
-              Try Free Calculator
+              Start
               <ArrowRight
                 display={{ base: 'none', lg: 'block' }}
                 position={{ lg: 'absolute' }}
@@ -694,7 +692,7 @@ export default function Calculator({
                         alignItems="center"
                         justifyContent={{
                           base: 'space-between',
-                          lg: data.multiple ? 'space-between' : 'flex-end',
+                          lg: data.multiple ? 'space-between' : 'center',
                         }}
                       >
                         {item.icon && (
@@ -707,13 +705,13 @@ export default function Calculator({
                             <Image
                               src={item.icon}
                               alt="12"
-                              width="64"
-                              height="64"
+                              width="48"
+                              height="48"
                             />
                           </Box>
                         )}
                         <Box
-                          mt={{ lg: data.multiple ? '0' : '2' }}
+                          mt={{ lg: data.multiple ? '0' : '4' }}
                           minH={{ lg: data.multiple ? '0' : '2.125rem' }}
                           fontSize={{
                             base: '1.125rem',

@@ -105,7 +105,6 @@ export default function CalculatorContactHandler({
         <Box
           fontFamily="heading"
           fontSize="1.75rem"
-          line-height="2.25rem"
           fontWeight="bold"
           color={theme.dark}
           mb="6"
