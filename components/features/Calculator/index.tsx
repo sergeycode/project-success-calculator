@@ -11,6 +11,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import ArrowRight from 'components/Icons/ArrowRight';
 import Result from './Result';
+import Navigation from './Navigation';
 
 import slugify from 'helpers/slugify';
 import median from 'helpers/median';
@@ -721,47 +722,13 @@ export default function Calculator({
                 })}
               </Grid>
             </Box>
-            <Box
-              display="flex"
-              flexDirection={{ base: 'column', lg: 'row' }}
-              mt={{ base: '4', lg: '12' }}
-              justifyContent="center"
-            >
-              {step != 1 && (
-                <Button
-                  variant="secondary"
-                  minW={{ base: '100%', md: '10.25rem' }}
-                  position="relative"
-                  order={{ base: 1, lg: 0 }}
-                  onClick={() => setStep(step - 1)}
-                >
-                  Previous{' '}
-                  <ArrowRight
-                    display={{ base: 'none', lg: 'block' }}
-                    position={{ lg: 'absolute' }}
-                    left={{ lg: '4' }}
-                    transform="rotate(180deg)"
-                    transition="none"
-                  />
-                </Button>
-              )}
-              <Button
-                variant="primary"
-                minW={{ base: '100%', md: '10.25rem' }}
-                position="relative"
-                mb={{ base: '4', lg: '0' }}
-                ml={{ base: '0', lg: '4' }}
-                onClick={() => nextStep()}
-                isDisabled={!filledStep(data.multiple)}
-              >
-                {step === maxSteps ? 'Continue' : 'Next'}{' '}
-                <ArrowRight
-                  display={{ base: 'none', lg: 'block' }}
-                  position={{ lg: 'absolute' }}
-                  right={{ lg: '4' }}
-                />
-              </Button>
-            </Box>
+            <Navigation
+              step={step}
+              setStep={setStep}
+              nextStep={nextStep}
+              maxSteps={maxSteps}
+              isDisabled={!filledStep(data.multiple)}
+            />
           </Box>
           <Result
             theme={theme}
