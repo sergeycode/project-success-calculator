@@ -12,7 +12,7 @@ const calculatorTheme = {
 };
 
 describe('Calculator', () => {
-  it('Inital screen exists if With Start', () => {
+  it('Inital screen exists withStart', () => {
     const { queryByTestId } = render(
       <Calculator theme={calculatorTheme} withStart={true} />
     );
@@ -20,7 +20,7 @@ describe('Calculator', () => {
     expect(queryByTestId(/initial-screen/i)).toBeTruthy();
   });
 
-  it('Inital screen does not exist if Without Start', () => {
+  it('Inital screen does not exist withStart=false', () => {
     const { queryByTestId } = render(
       <Calculator theme={calculatorTheme} withStart={false} />
     );
