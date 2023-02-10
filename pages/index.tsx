@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Calculator from '@/components/features/Calculator';
+import Calculator from 'components/features/Calculator';
 
 const calculatorTheme = {
   primary: 'lightTeal',

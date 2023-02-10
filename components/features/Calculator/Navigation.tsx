@@ -1,7 +1,7 @@
 import { Box, Button } from '@chakra-ui/react';
 import { Dispatch, SetStateAction } from 'react';
 
-import ArrowRight from '@/components/Icons/ArrowRight';
+import ArrowRight from 'components/Icons/ArrowRight';
 
 export default function Navigation({
   step,

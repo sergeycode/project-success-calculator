@@ -10,8 +10,8 @@ import {
 } from '@chakra-ui/react';
 import Image from 'next/image';
 
-import CalculatorContactHandler from '@/components/Forms/CalculatorContactHandler';
-import ArrowRight from '@/components/Icons/ArrowRight';
+import CalculatorContactHandler from 'components/Forms/CalculatorContactHandler';
+import ArrowRight from 'components/Icons/ArrowRight';
 
 const ResultBox = ({
   icon,

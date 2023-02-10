@@ -10,7 +10,7 @@ import {
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import ArrowRight from 'components/Icons/ArrowRight';
-import Result from './Result';
+import Result from 'components/features/Calculator/Result';
 import StepIndicator from './StepIndicator';
 import Navigation from './Navigation';
 
@@ -397,9 +397,13 @@ export default function Calculator({
 
   return (
     <Box bgColor="#F8F8F8">
-      <Container py={{ base: '12', lg: '24' }} id="get-started">
+      <Container py={{ base: '12', lg: '24' }}>
         {withStart && (
-          <Box textAlign="center" display={started ? 'none' : 'block'}>
+          <Box
+            textAlign="center"
+            display={started ? 'none' : 'block'}
+            data-testid="initial-screen"
+          >
             <Box
               maxW="100%"
               w="600px"
