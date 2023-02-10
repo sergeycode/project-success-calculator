@@ -328,14 +328,23 @@ export default function Calculator({
   const currentStepData = (stepData: StepData[], step: number) =>
     stepData[step - 1];
 
-  const nextStep = () => {
+  const handleStep = (prev?: boolean) => {
+    if (prev && step === 1) {
+      return false;
+    }
+
+    if (prev) {
+      setStep(step - 1);
+      return;
+    }
+
     if (step < maxSteps) {
       setStep(step + 1);
+      return;
     }
-    if (step === maxSteps) {
-      setCompleted(true);
-      sessionStorage.successCalculator = JSON.stringify(answer);
-    }
+
+    setCompleted(true);
+    sessionStorage.successCalculator = JSON.stringify(answer);
   };
 
   const filledStep = (multiple: boolean) => {
@@ -706,8 +715,7 @@ export default function Calculator({
             </Box>
             <Navigation
               step={step}
-              setStep={setStep}
-              nextStep={nextStep}
+              handleStep={handleStep}
               maxSteps={maxSteps}
               isDisabled={!filledStep(data.multiple)}
             />

@@ -1,18 +1,15 @@
 import { Box, Button } from '@chakra-ui/react';
-import { Dispatch, SetStateAction } from 'react';
 
 import ArrowRight from 'components/Icons/ArrowRight';
 
 export default function Navigation({
   step,
-  setStep,
-  nextStep,
+  handleStep,
   maxSteps,
   isDisabled,
 }: {
   step: number;
-  setStep: Dispatch<SetStateAction<number>>;
-  nextStep: () => void;
+  handleStep: (prev?: boolean) => void;
   maxSteps: number;
   isDisabled: boolean;
 }) {
@@ -28,7 +25,7 @@ export default function Navigation({
         minW={{ base: '100%', md: '10.25rem' }}
         position="relative"
         order={{ base: 1, lg: 0 }}
-        onClick={() => setStep(step - 1)}
+        onClick={() => handleStep(true)}
         isDisabled={step === 1}
         display={step === 1 ? 'none' : 'flex'}
         data-testid="prev"
@@ -48,7 +45,7 @@ export default function Navigation({
         position="relative"
         mb={{ base: '4', lg: '0' }}
         ml={{ base: '0', lg: '4' }}
-        onClick={() => nextStep()}
+        onClick={() => handleStep()}
         isDisabled={isDisabled}
         data-testid="next"
       >
