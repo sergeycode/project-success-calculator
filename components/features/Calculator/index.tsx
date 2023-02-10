@@ -10,7 +10,7 @@ import {
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import ArrowRight from 'components/Icons/ArrowRight';
-import Result from 'components/features/Calculator/Result';
+import Result from './Result';
 import StepIndicator from './StepIndicator';
 import Navigation from './Navigation';
 
@@ -589,6 +589,7 @@ export default function Calculator({
                       }
                       data-value={item.title}
                       data-point={item.point}
+                      data-testid={`step-choice-${itemIndex}`}
                     >
                       <Box
                         display="flex"

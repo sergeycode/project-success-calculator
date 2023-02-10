@@ -20,6 +20,7 @@ export default function StepIndicator({
         lineHeight="1.5rem"
         textAlign="center"
         fontWeight="semibold"
+        data-testid="step-text"
       >
         Step {step} of {maxSteps}
       </Box>

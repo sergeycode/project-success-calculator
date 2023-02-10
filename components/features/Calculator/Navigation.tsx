@@ -23,24 +23,25 @@ export default function Navigation({
       mt={{ base: '4', lg: '12' }}
       justifyContent="center"
     >
-      {step != 1 && (
-        <Button
-          variant="secondary"
-          minW={{ base: '100%', md: '10.25rem' }}
-          position="relative"
-          order={{ base: 1, lg: 0 }}
-          onClick={() => setStep(step - 1)}
-        >
-          Previous{' '}
-          <ArrowRight
-            display={{ base: 'none', lg: 'block' }}
-            position={{ lg: 'absolute' }}
-            left={{ lg: '4' }}
-            transform="rotate(180deg)"
-            transition="none"
-          />
-        </Button>
-      )}
+      <Button
+        variant="secondary"
+        minW={{ base: '100%', md: '10.25rem' }}
+        position="relative"
+        order={{ base: 1, lg: 0 }}
+        onClick={() => setStep(step - 1)}
+        isDisabled={step === 1}
+        display={step === 1 ? 'none' : 'flex'}
+        data-testid="prev"
+      >
+        Previous{' '}
+        <ArrowRight
+          display={{ base: 'none', lg: 'block' }}
+          position={{ lg: 'absolute' }}
+          left={{ lg: '4' }}
+          transform="rotate(180deg)"
+          transition="none"
+        />
+      </Button>
       <Button
         variant="primary"
         minW={{ base: '100%', md: '10.25rem' }}
@@ -49,6 +50,7 @@ export default function Navigation({
         ml={{ base: '0', lg: '4' }}
         onClick={() => nextStep()}
         isDisabled={isDisabled}
+        data-testid="next"
       >
         {step === maxSteps ? 'Finish' : 'Next'}
         <ArrowRight

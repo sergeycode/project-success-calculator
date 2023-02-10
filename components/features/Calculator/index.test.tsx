@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import Calculator from 'components/features/Calculator';
 
 const calculatorTheme = {
@@ -26,5 +26,37 @@ describe('Calculator', () => {
     );
 
     expect(queryByTestId(/initial-screen/i)).toBeFalsy();
+  });
+
+  it('Step 1 is correct step', () => {
+    const { queryByTestId } = render(
+      <Calculator theme={calculatorTheme} withStart={false} />
+    );
+    expect(queryByTestId(/step-text/i)?.textContent).toMatch(/1/);
+  });
+
+  it('Step 1 Next Button disabled', () => {
+    const { queryByTestId } = render(
+      <Calculator theme={calculatorTheme} withStart={false} />
+    );
+    expect(queryByTestId(/next/i)).toBeDisabled();
+  });
+
+  it('Step 1 Previous Button is hidden and disabled', () => {
+    const { queryByTestId } = render(
+      <Calculator theme={calculatorTheme} withStart={false} />
+    );
+    expect(queryByTestId(/prev/i)).toBeDisabled();
+    expect(queryByTestId(/prev/i)).not.toBeVisible();
+  });
+
+  it('Click one of choices, Next enabled', async () => {
+    const { queryByTestId } = render(
+      <Calculator theme={calculatorTheme} withStart={false} />
+    );
+    const button = queryByTestId(/step-choice-0/);
+    fireEvent.click(button as HTMLElement);
+
+    expect(await screen.findByTestId(/next/i)).toBeEnabled();
   });
 });
