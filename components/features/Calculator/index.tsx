@@ -13,8 +13,6 @@ import ArrowRight from 'components/Icons/ArrowRight';
 import Result from './Result';
 import StepIndicator from './StepIndicator';
 import Navigation from './Navigation';
-
-import slugify from 'helpers/slugify';
 import median from 'helpers/median';
 import { useRouter } from 'next/router';
 
@@ -54,13 +52,7 @@ const ToolsWithPoints: () => ToolsOptions[] = () => {
   mapPointsToOptions({ tools: tools3, toolsOptions, point: 3 });
   mapPointsToOptions({ tools: tools4, toolsOptions, point: 4 });
 
-  return toolsOptions.sort((a, b) =>
-    slugify(a.title) > slugify(b.title)
-      ? 1
-      : slugify(b.title) > slugify(a.title)
-      ? -1
-      : 0
-  );
+  return toolsOptions.sort((a, b) => a.title.localeCompare(b.title));
 };
 
 interface StepData {
