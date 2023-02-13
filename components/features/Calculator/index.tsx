@@ -335,12 +335,10 @@ export default function Calculator({
 
     if (prev) {
       setStep(step - 1);
-      return;
     }
 
     if (step < maxSteps) {
       setStep(step + 1);
-      return;
     }
 
     setCompleted(true);
