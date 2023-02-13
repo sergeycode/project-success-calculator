@@ -18,51 +18,41 @@ import slugify from 'helpers/slugify';
 import median from 'helpers/median';
 import { useRouter } from 'next/router';
 
-const tools1 = ['Basecamp', 'Trello', 'Asana', 'Jira'];
+const tools1 = ['Text Messages', 'Phone Calls'];
+const tools2 = ['Emails'];
+const tools3 = ['Private Slack Channel'];
+const tools4 = ['Basecamp', 'Trello', 'Asana', 'Jira'];
 
-const tools2 = ['Private Slack Channel'];
+interface ToolsOptions {
+  title: string;
+  icon: string;
+  point: number;
+}
 
-const tools3 = ['Emails'];
-
-const tools4 = ['Text Messages', 'Phone Calls'];
-
-const AllTools = () => {
-  const toolsOptions: {
-    title: string;
-    icon: string;
-    point: number;
-  }[] = [];
-  tools1.map((item) => {
+const mapPointsToOptions = ({
+  tools,
+  toolsOptions,
+  point,
+}: {
+  tools: string[];
+  toolsOptions: ToolsOptions[];
+  point: number;
+}) => {
+  return tools.map((item) => {
     toolsOptions.push({
       title: item,
       icon: '',
-      point: 4,
+      point,
     });
   });
+};
 
-  tools2.map((item) => {
-    toolsOptions.push({
-      title: item,
-      icon: '',
-      point: 3,
-    });
-  });
-
-  tools3.map((item) => {
-    toolsOptions.push({
-      title: item,
-      icon: '',
-      point: 2,
-    });
-  });
-
-  tools4.map((item) => {
-    toolsOptions.push({
-      title: item,
-      icon: '',
-      point: 1,
-    });
-  });
+const ToolsWithPoints: () => ToolsOptions[] = () => {
+  const toolsOptions: ToolsOptions[] = [];
+  mapPointsToOptions({ tools: tools1, toolsOptions, point: 1 });
+  mapPointsToOptions({ tools: tools2, toolsOptions, point: 2 });
+  mapPointsToOptions({ tools: tools3, toolsOptions, point: 3 });
+  mapPointsToOptions({ tools: tools4, toolsOptions, point: 4 });
 
   return toolsOptions.sort((a, b) =>
     slugify(a.title) > slugify(b.title)
@@ -117,7 +107,7 @@ const stepData: StepData[] = [
     title:
       'What kind of project management tools do you use (select multiple):',
     multiple: true,
-    items: AllTools(),
+    items: ToolsWithPoints(),
   },
   {
     name: 'qa',
@@ -335,10 +325,12 @@ export default function Calculator({
 
     if (prev) {
       setStep(step - 1);
+      return;
     }
 
     if (step < maxSteps) {
       setStep(step + 1);
+      return;
     }
 
     setCompleted(true);
