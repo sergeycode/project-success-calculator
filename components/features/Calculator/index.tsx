@@ -265,30 +265,27 @@ export default function Calculator({
     const value = String(event.currentTarget.dataset.value);
     const point = Number(event.currentTarget.dataset.point);
 
-    if (multiple) {
-      setAnswer({
-        ...answer,
-        // add/remove on click
-        [answerKey]: (answer[answerKey as keyof Answer] as AnswerItem[]).some(
-          (s) => s.name === value
-        )
-          ? (answer[answerKey as keyof Answer] as AnswerItem[]).filter(
+    // add/remove on click if multiple
+    const newAnswer = {
+      ...answer,
+      [answerKey]: multiple
+        ? [...(answer[answerKey as keyof Answer] as AnswerItem[])].some(
+            (s) => s.name === value
+          )
+          ? [...(answer[answerKey as keyof Answer] as AnswerItem[])].filter(
               (f) => f.name !== value
             )
-          : (answer[answerKey as keyof Answer] as AnswerItem[]).concat({
+          : [...(answer[answerKey as keyof Answer] as AnswerItem[])].concat({
               name: value,
               point: point,
-            }),
-      });
-    } else {
-      setAnswer({
-        ...answer,
-        [answerKey]: {
-          name: value,
-          point: point,
-        },
-      });
-    }
+            })
+        : {
+            name: value,
+            point: point,
+          },
+    };
+
+    setAnswer(newAnswer);
   };
 
   const handleReset = () => {
