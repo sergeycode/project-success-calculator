@@ -1,38 +1,129 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<a name="readme-top"></a>
 
-## Getting Started
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-First, run the development server:
+<div align="center">
+  <a href="https://github.com/sergeycode/project-success-calculator">
+    <img src="public/images/logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+  <h3 align="center">Project Success Calculator</h3>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  <p align="center">
+    Next.js project to highlight my latest skills
+  </p>
+</div>
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#installation">Installation</a>
+    </li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+<!-- ABOUT THE PROJECT -->
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## About The Project
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+[![Screenshot][product-screenshot]](https://sergeycode.github.io/)
 
-## Learn More
+Included Features:
 
-To learn more about Next.js, take a look at the following resources:
+- Unit/E2E tests with React Testing Library, Jest, Cypress;
+- Validation with Formik and Yup;
+- Chakra UI Components;
+- Stored Results / Form Submissions in Browser Session Storage for returning users (hidden form if submitted, restart);
+- Single/Multi anwser
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Built With
 
-## Deploy on Vercel
+- [![react][react]][react-url]
+- [![Next.js][next-js]][next-js-url]
+- [![ChakraUI][chakraui]][chakraui-url]
+- [![Typescript][typescript]][typescript-url]
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<!-- GETTING STARTED -->
+
+## Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/sergeycode/project-success-calculator.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. For dev mode run
+   ```sh
+   npm run dev
+   ```
+4. For Jest tests run
+   ```sh
+   npm run test
+   ```
+5. For E2E Cypress test run
+   ```sh
+   npm run e2e
+   ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LICENSE -->
+
+## License
+
+Distributed under the MIT License.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTACT -->
+
+## Contact
+
+Twitter - [@sergeycode](https://twitter.com/sergeycode)
+
+Project Link: [https://github.com/sergeycode/project-success-calculator](https://github.com/sergeycode/project-success-calculator)
+
+Github pages - [https://sergeycode.github.io/](https://sergeycode.github.io/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGMENTS -->
+
+## Acknowledgments
+
+- [Start Screen Image Illustration](https://www.freepik.com/free-vector/successful-business-man-holding-trophy_11879373.htm)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[react-url]: https://reactjs.org/
+[next-js-url]: https://nextjs.org/
+[typescript-url]: https://www.typescriptlang.org/
+[chakraui-url]: https://chakra-ui.com/
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/sergeyovcharenko
+[product-screenshot]: public/images/screenshot.jpg
+[react]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[next-js]: https://img.shields.io/badge/Next.js-20232A?style=for-the-badge&logo=Next.js
+[chakraui]: https://img.shields.io/badge/Chakra-20232A?style=for-the-badge&logo=chakraui&logoColor=319795
+[typescript]: https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white
