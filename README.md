@@ -46,7 +46,7 @@ Included Features:
 - Validation with Formik and Yup;
 - Chakra UI Components;
 - Stored Results / Form Submissions in Browser Session Storage for returning users (hidden form if submitted, restart);
-- Single/Multi anwser
+- Single/Multi answer
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
